@@ -1,0 +1,57 @@
+<%-include('partials/header')%>
+    <link rel="stylesheet" href="css\style.css">
+    </head>
+    <body>
+        
+        <!-- <div><p id="alert"><%# a %> </p></div> -->
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="/login" method="post">
+                    <h1 class="bcol">Create Account</h1>
+                    <br>
+                    <input type="text" placeholder="Full Name" name="sname" />
+                    <input type="text" placeholder="Store Name" name="sstorename" />
+                    <input type="text" placeholder="Store Address" name="sstoreaddress" />
+                    <input type="email" placeholder="Email" name="username"/>
+                    <input type="password" placeholder="Password" name="password" />
+                    <br>
+                    <button name="signup" value="0">Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="/login" method="post">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4784/4784546.png" alt="login" width="100px " height="100px">
+                    <h1 class="bcol my-3 px-3" >Smart Manager</h1>
+                    <!-- <hr style="border: 2px dotted #777; width:50%"> -->
+                    <h1 class="bcol">Sign In</h1>
+                    <br>
+                    <input type="email" placeholder="Email" name="username"/>
+                    <input type="password" placeholder="Password" name="password"/>
+                    <a href="#" class="bcol">Forgot your password?</a>
+                    <button name="signin" value="1">Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, Mr.Owner!</h1>
+                        <p>Enter your Store details and start journey with us</p>
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>
+                Created with <i class="fa fa-heart"></i>  by
+                <a target="_blank" href="">Team Web-Chef</a>
+                - Manage Your Shop at Your Finger-Tip
+                <a target="_blank" href="/">Home</a>.
+            </p>
+        </footer>
+<%-include('partials/footer')%>

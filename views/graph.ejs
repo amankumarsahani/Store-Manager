@@ -1,0 +1,182 @@
+<%- include('partials/header') %>
+  <title>Dashboard-Report</title>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+    body {
+      background-color: aliceblue;
+      background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+
+    }
+
+    .box {
+      border: none;
+      box-shadow: 5px 5px 5px #bbb;
+      height: 500px;
+      width: 100%;
+      background-color: #fff;
+    }
+
+    .canva {
+      display: inline-block;
+      position: relative;
+      width: 95%;
+      height: 100%;
+    }
+
+    .canva1 {
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    
+  </style>
+  
+
+  </head>
+
+  <body class="">
+    <nav class="navbar navbar-expand-md navbar-dark bg" style="background-color: #112559;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Smart Manager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard/bill">Billing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Sign Out</a>
+            </li>
+
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div>
+        <h1 class="text-center">Reports</h1>
+      </div>
+      <div class="box my-2">
+        <div class="canva1">
+          <h1></h1>
+          <canvas class="my-1" id="profitChart"></canvas>
+          <script>
+            const ctx = document.getElementById('profitChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                datasets: [{
+                  label: 'Daily Sales',
+                  data: [1200, 1900, 300, 1500, 1200, 3000, 5000],
+                  // data:,
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor:
+                    'rgba(255, 99, 132, 1'
+                  ,
+                  borderWidth: 1.5
+                }]
+              },
+              options: {
+                title: { display: true, text: "Weekly Profit", fontSize: 15 },
+                layout: {
+                  height: "222px"
+                },
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+            </script>
+        </div>
+      </div>
+      <div class="box my-2">
+        <div class="canva1">
+          <canvas class="my-1" id="customeChart">Soon</canvas>
+          <script>const ctx1 = document.getElementById('customeChart').getContext('2d');
+            const myChart1 = new Chart(ctx1, {
+              type: 'bar',
+              data: {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                datasets: [{
+                  label: 'No. of Customers on Each Weekdays',
+                  data: [1200, 1900, 300, 1500, 1200, 3000, 5000],
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: ['rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)']
+                  ,
+                  borderWidth: 1.5
+                }]
+              },
+              options: {
+                title: { display: true, text: "Daily Customers", fontSize: 15 },
+                layout: {
+                  height: "222px"
+                },
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    
+    
+    <%-include('partials/footer')%>

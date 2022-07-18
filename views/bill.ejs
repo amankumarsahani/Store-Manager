@@ -1,0 +1,212 @@
+<%- include('partials/header') %>
+  <title>Dashboard</title>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    body{
+        background-color: #a5afed;
+        background-image: url("https://www.transparenttextures.com/patterns/batthern.png");
+
+    }
+
+    .tot{
+      font-size: 20px;
+      padding-top: 2px;
+    }
+
+    .b{
+      background-color: #112559;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .box {
+      background-color: #112559;
+      color: #fff;
+      text-align: center;
+      height: 50px;
+      border: none;
+      margin: 5px auto;
+    }
+
+    .b-tab {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 5px;
+    }
+
+    p {
+      font-weight: bolder;
+      font-size: 20px;
+    }
+
+    .b-item-t {
+      background-color: #bbb;
+      width: 25%;
+      margin: 2px;
+      text-align: center;
+      height: 30px;
+    }
+
+    .b-item {
+      background-color: rgb(202, 206, 255);
+      width: 20%;
+      margin: 2px;
+    }
+
+    .b-item1 {
+      /* background-color: aquamarine; */
+      width: 20%;
+      margin: 2px;
+      border: none;
+      box-shadow: 2px 2px 5px #bbb;
+      height: 30px;
+      color: #112559;
+    }
+
+    .detail {
+      margin: 2px;
+      border: none;
+      border-top: 2px solid #bbb;
+      height: 30px;
+      width: 50%;
+      border-radius: 2px;
+      box-shadow: 5px 5px 10px #bbb;
+      inset: 5px 5px 10px #bbb;
+    }
+
+    .fom-tit {
+      width: 25%;
+      background-color: #112559;
+      color: #fff;
+      padding: 5px;
+      text-align: center;
+      margin: 0 auto;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="../public/css/billstyle.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg" style="background-color: #112559;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Smart Manager</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/dashboard/bill">Billing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/dashboard/bill">New Billing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Sign Out</a>
+              </li>
+
+            </ul>
+            <form class="d-flex my-2">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <div class="container box" id="heading">
+      <h1>Billing</h1>
+    </div>
+    <div class="b-body my-4 container py-1" style="border:none;box-shadow: 5px 5px 10px #112559;background-color: #fff;">
+      
+        <h3 class="fom-tit" style="margin:5px auto;">Product Billing :</h3>
+        <div class="b-tab container" style="border: 5px solid #112559;">
+          <div class="b-item-t">
+            <p>Product Name</p>
+          </div>
+          <div class="b-item-t">
+            <p>Quantity</p>
+          </div>
+          <div class="b-item-t">
+            <p>Price</p>
+          </div>
+          <div class="b-item-t">
+            <p>Total Amount</p>
+          </div>
+          <div class="b-item-t">
+            <p>Action</p>
+          </div>
+        </div>
+
+        <% newBillProduct.forEach(function(item){ %>
+          <form action="/dashboard/bill/delete" method="post" style="margin-bottom: 4px;">
+            <div class="b-tab my-0">
+              <input class="b-item" name="bName" value=<%= item.bname %>>
+                
+              </input>
+              <input class="b-item" name="bQuantity" value=<%=item.bquantity %>>
+                
+              </input>
+              <input class="b-item" name="bPrice" value=<%=item.bprice %>>
+                
+              </input>
+              <input class="b-item" name="bTotal" value=<%=item.btotal %>>
+                
+              </input>
+              <button class="b-item" type="submit" name="plist" value=<%=item._id %>>-</button>
+            </div>
+          </form>
+          <% }) %>
+            <form action="/dashboard/bill" method="post">
+              <div class="b-tab" style="border-top: 4px solid #bbb; box-shadow: 5px 5px 10px #bbb;">
+                <input type="text" class="b-item1" name="bProduct" autocomplete="off" placeholder="Product">
+                <input type="text" class="b-item1" name="bQuantity"  autocomplete="off" placeholder="Quantity">
+                <input type="text" class="b-item1" name="bPrice" autocomplete="off" placeholder="Price">
+                <input type="text" class="b-item1" name="bTotal" autocomplete="off" placeholder="Total">
+                <button type="submit" name="list" class="b-item1" value="productadd">+</button>
+              </div>
+              <div class="d-flex justify-content-center mt-4">
+                <label for="total" class="fw-bold mx-1 tot">Total Amount : </label>
+                <input class="b-item1 mx-2 mt-1" value=<%-totalAmount%> type="text" name="total" style="border: 2px solid #bbb;">
+                <button type="submit"  class="btn b" name="list" value="billsubmit">Pay</button>
+                <button type="submit" class="btn b mx-2" name="list" value="reset" >Reset</button>
+              </div>
+            </form>
+            
+            <form action="/dashboard/bill/cxDetail" method="post"></form>
+              
+            </form>
+    </div>
+
+
+    <%-include('partials/footer')%>

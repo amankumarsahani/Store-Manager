@@ -1,0 +1,141 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  
+  .box {
+max-width:200rem;
+text-align: center;
+margin: 50px auto;
+background: white;
+border-radius: 5px;
+box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+h1{
+/* font-size: 30px; */
+font-weight: 500;
+}
+
+#heading {
+background-color: #0066fd;
+text-align: center;
+color: #fff;
+width: 80%;
+}
+
+.item {
+min-height: 70px;
+display: flex;
+align-items: center;
+border-bottom: 10px solid #F1F1F1;
+text-transform: capitalize;
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+}
+
+.item:last-child {
+border-bottom: 0;
+display: grid;
+}
+
+input:checked+p {
+text-decoration: line-through;
+text-decoration-color: #A683E3;
+}
+
+
+.itembox{
+align-items:center;
+min-width:240px;
+text-align: center;
+margin: auto;
+padding: 20px 55px;
+font-size: 20px;
+font-weight: 5000;
+color: #00204a;
+border-radius: 5px;
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+gap: 20px;
+box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+form.item {
+text-align: center;
+margin-left: 5px;
+
+}
+
+.adbutton {
+align-items:center;
+min-width:80px;
+text-align: center;
+margin: auto 5px;
+padding: 8px 56px;
+font-size: 20px;
+font-weight: bold;
+background-color: #112559;
+color: #fff;
+border: none;
+border-radius: 5px;
+display: grid;
+grid-template-columns: repeat(auto-fit,
+minmax(200px,1fr));
+gap: 20px;
+box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+
+}
+.adbutton2 {
+align-items:center;
+min-width:80px;
+text-align: center;
+margin: auto 5px;
+padding: 10px 60px;
+font-size: 20px;
+font-weight: bold;
+background-color: #112559;
+color: #fff;
+border: none;
+border-radius: 5px;
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+gap: 20px;
+box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+
+}
+
+.inputbox {
+align-items:center;
+text-align: center;
+min-width:240px;
+text-align: center;
+margin: auto 3px;
+padding: 20px 40px;
+font-size: 20px;
+font-weight: 5000;
+color: #00204a;
+border-radius: 5px;
+border: none;
+border-top: 2px black solid;
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+gap: 10px;
+box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.3);
+
+}
+
+::placeholder {
+color: grey;
+opacity: 1;
+}

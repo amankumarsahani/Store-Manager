@@ -1,0 +1,235 @@
+<%- include('partials/header') %>
+  <title>Products Available</title>
+  <link href="css\product.css" rel="stylesheet">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    body {
+      background-color: #a5afed;
+      background-image: url("https://www.transparenttextures.com/patterns/batthern.png");
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+
+    .box {
+      max-width: 200rem;
+      text-align: center;
+      margin: 25px auto;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      /* font-size: 30px; */
+      font-weight: 500;
+    }
+
+    #heading {
+      background-color: #0066fd;
+      text-align: center;
+      color: #fff;
+      width: 80%;
+    }
+
+    .item {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      border-bottom: 10px solid #F1F1F1;
+      text-transform: capitalize;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+      display: grid;
+    }
+
+    input:checked+p {
+      text-decoration: line-through;
+      text-decoration-color: #A683E3;
+    }
+
+
+    .itembox {
+      align-items: center;
+      min-width: 200px;
+      text-align: center;
+      margin: auto;
+      padding: 20px 55px;
+      font-size: 20px;
+      font-weight: 5000;
+      color: #00204a;
+      border-radius: 5px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+      text-transform: capitalize;
+    }
+
+    form.item {
+      text-align: center;
+      margin-left: 5px;
+
+    }
+
+    .adbutton {
+      align-items: center;
+      min-width: 80px;
+      text-align: center;
+      margin: auto 5px;
+      padding: 8px 56px;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #112559;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,
+          minmax(200px, 1fr));
+      gap: 20px;
+      box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+
+    }
+
+    .adbutton2 {
+      align-items: center;
+      min-width: 80px;
+      text-align: center;
+      margin: auto 5px;
+      padding: 10px 60px;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #112559;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+
+    }
+
+    .inputbox {
+      align-items: center;
+      text-align: center;
+      min-width: 240px;
+      text-align: center;
+      margin: auto 3px;
+      padding: 20px 40px;
+      font-size: 20px;
+      font-weight: 5000;
+      color: #00204a;
+      border-radius: 5px;
+      border: none;
+      border-top: 3px #112559 solid;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .g {
+      background-color: rgba(229, 231, 233, 0.855);
+    }
+
+    ::placeholder {
+      color: grey;
+      opacity: 1;
+    }
+  </style>
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark  bg" style="background-color: #112559;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Smart Manager</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/dashboard/bill">Billing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/Dashboard/Products" aria-current="page">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Sign Out</a>
+              </li>
+
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container ">
+      <div class="box" id="heading">
+        <h1>Products Available :</h1>
+      </div>
+
+      <div class='box py-1 px-2' style="background-color: #fff;">
+        <div class="item ">
+          <div class="d-flex justify-content center">
+            <p class="itembox g fw-bold fs-4">Product</p>
+            <p class="itembox g fw-bold fs-4">Quantity</p>
+            <p class="itembox g fw-bold fs-4">Cost-Price / Qnt.</p>
+            <p class="itembox g fw-bold fs-4">Action</p>
+          </div>
+
+        </div>
+        <% newproduct.forEach(function(item){ %>
+          <form action="/dashboard/products/delete" method="post">
+            <div class="item d-flex justify-content-center">
+              <input class="itembox " name="pname" value=<%-item.pname %>></input>
+              <input class="itembox " name="pquantity" value=<%-item.pquantity %>></input>
+              <input class="itembox " name="pprice" value=<%-item.pprice %>></input>
+              <button class="adbutton2" type="submit" name="plist" value=<%=item._id %>>-</button>
+            </div>
+          </form>
+          <% }) %>
+            <form class="item" action="/dashboard/products" method="post">
+              <div class="item ">
+                <input type="text" class="inputbox g" name="product" placeholder="Product" autocomplete="off">
+                <input type="text" class="inputbox g" name="quantity" placeholder="Quantity" autocomplete="off">
+                <input type="Number" class="inputbox g" name="price" placeholder="Cost Price" autocomplete="off">
+                <button type="submit" name="list" class="adbutton" value="productadd">+</button>
+
+              </div>
+
+            </form>
+      </div>
+    </div>
+
+    <%- include("partials/footer"); %>

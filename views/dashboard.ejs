@@ -1,0 +1,396 @@
+<%- include('partials/header') %> 
+    <title>Dashboard</title>
+
+    <style>
+      body{
+        background-color: #ffffff;
+        background-image: url("https://www.transparenttextures.com/patterns/transparent-square-tiles.png");
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      .canva{
+        display: inline-block;
+        position: relative;
+        width: 95%;
+        /* height: 100%; */
+      }
+      .canva1{
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        /* height: 100%; */
+      }
+
+      .para{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 30px;
+        font-weight: 700;
+        padding-top: 10px;
+      }
+      .revspan{
+        font-weight: bolder;
+        font-size: 50px;
+        color: #112259;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .d-tit{
+        border-bottom: 3px solid #bbb;
+      }
+      .d-box{
+        border: none;
+        box-shadow: 5px 5px 10px #bbb;
+        background-color: #ffffff;
+        background-image: url("https://www.transparenttextures.com/patterns/noise-pattern-with-subtle-cross-lines.png");
+
+
+        width: 355px;
+        height: 150px;
+      }
+
+      .g-box{
+        border: none;
+        box-shadow: 5px 5px 10px #bbb;
+        border-radius: 0px;
+        width: 55%;
+        height: 280px;
+      }
+
+      td{
+        text-transform: capitalize;
+        text-align: center;
+      }
+
+      th{
+        text-align: center;
+      }
+
+      main{
+        border-left: 2px solid #112559;
+      }
+
+
+
+      footer {
+        background-color: #112559;
+        color: #fff;
+        font-size: 14px;
+        bottom: 0;
+        position:relative;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+        margin-bottom: 0;
+        height: 30px;
+      }
+
+      footer p {
+        margin: 10px 0 0 0;
+        padding-top: 2px;
+      }
+
+      footer a {
+        color: #3c97bf;
+        text-decoration: none;
+      }
+      
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+ 
+  </head>
+  <body>
+    
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg" style="background-color: #112559;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Smart Manager</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/bill">Billing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Sign Out</a>
+          </li>
+          
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/bill">
+              <span data-feather="file"></span>
+              Billing
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/products">
+              <span data-feather="shopping-cart"></span>
+              Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/customers">
+              <span data-feather="users"></span>
+              Customers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/report">
+              <span data-feather="bar-chart-2"></span>
+              Reports
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/error">
+              <span data-feather="layers"></span>
+              Integrations
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex mt-2">
+        <img class="my-2 mx-2 pl-2" src="https://cdn-icons-png.flaticon.com/512/610/610106.png" alt="dashboard" height="50px" width="50px">
+        <h1 class="d-tit fw-bold ml-2">Dashboard</h1>
+      </div>
+      <hr style="border: 3px solid #bbb;">
+
+
+      <div class="container">
+        
+        <div class="d d-flex justify-content-center">
+          <div class="d-box mx-3 my-4 text-center">
+            <p class="para">PROFIT</p>
+            <p class="revspan">-/-</p>
+            
+          </div>
+          <div class="d-box mx-3 my-4 text-center">
+            <p class="para">Total No. Of Billing</p>
+            <p class="revspan"><%- billno %> </p>
+          </div>
+          <div class="d-box mx-3 my-4 text-center ">
+            <p class="para">Total Revenue</p>
+            <p class="revspan"><%- revenue %> </p>
+            
+          </div>
+        </div>
+
+        <div class="container">
+        
+          <div class="d d-flex justify-content-center">
+            <div class="g-box mx-2 my-2 text-center">
+              <div class="canva">
+                <canvas class="my-1" id="profitChart"></canvas>
+              </div>
+              
+            </div>
+            <div class="g-box mx-2 my-2 text-center">
+              <div class="canva1">
+                <canvas class="my-1" id="customerChart"></canvas>
+              </div>
+            </div>
+            </div>
+          </div>
+
+      </div>
+      <hr style="border: 3px solid #bbb;">
+      <div class="d-flex">
+        <img class="icn my-2 mx-2" src="https://cdn-icons-png.flaticon.com/512/2674/2674505.png" height="50px" width="50px">
+        <h2 class="fw-bold mt-3 mx-2">Products :</h2>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-xl">
+          <thead>
+            <tr>
+              <th scope="col">S.No.</th>
+              <th scope="col">Product</th>
+              <th scope="col">Quantity(Kg)</th>
+              <th scope="col">Price(Rs)</th>
+              <th scope="col">Available</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% newproduct.forEach(function(item,i){ %>
+              <% if(i>0 && i<6){ %>
+                <tr>
+                  <td><%- i %></td>
+                  <td><%- item.pname %></td>
+                  <td><%- item.pquantity %></td>
+                  <td><%- item.pprice %></td>
+                  <td>Available   <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" height="20px" width="20px"></td>
+                </tr>
+          
+          <% }}) %>
+          </tbody>
+        </table>
+      </div>
+      <hr style="border: 3px solid #bbb;">
+      <div class="d-flex">
+        <img class="icn my-2 mx-2" src="https://cdn-icons-png.flaticon.com/512/3126/3126589.png" height="50px" width="50px">
+        <h2 class="fw-bold mt-3 mx-2">Customers :</h2>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-xl">
+          <thead>
+            <tr>
+              <th scope="col">S.No.</th>
+              <th scope="col">Customer Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Mobile No.</th>
+              <th scope="col">Total Amount</th>
+              <th scope="col">Payment</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <% newCustomer.forEach(function(item,i){ %>
+              <% if(i<6){ %>
+                <tr>
+                  <td><%- i+1 %></td>
+                  <td><%- item.cname %></td>
+                  <td><%- item.caddress %></td>
+                  <td><%- item.cnumber %></td>
+                  <td><%- item.cAmount %> </td>
+                  <td>Paid   <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" height="20px" width="20px"></td>
+                </tr>
+          <% }}) %>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+<footer>
+<p>
+    Created by
+    <a target="_blank" href="">Team Web-Chef</a>
+    - Manage Your Shop at Your Finger-Tip
+    <a target="_blank" href="/">here</a>.
+</p>
+</footer>
+<script>
+
+const ctx = document.getElementById('profitChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'],
+          datasets: [{
+              label: 'Daily Sales',
+              data: [1200, 1900, 300, 1500, 1200, 2500,4000],
+              // data:,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: 
+                  'rgba(255, 99, 132, 1'
+              ,
+              borderWidth: 1.5
+          }]
+      },
+      options: {
+        title:{display:true,text:"Weekly Profit",fontSize:15},
+        layout:{
+          height:"222px"
+        },
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+  const ctx1 = document.getElementById('customerChart').getContext('2d');
+  const myChart1 = new Chart(ctx1, {
+      type: 'bar',
+      data: {
+          labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'],
+          datasets: [{
+              label: 'No. of Customers on Each Weekdays',
+              data: [5,15, 11, 18, 15, 12,20],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor:['rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)']
+              ,
+              borderWidth: 1.5
+          }]
+      },
+      options: {
+        title:{display:true,text:"Daily Customers",fontSize:15},
+        layout:{
+          height:"222px"
+        },
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });</script>
+<%-include('partials/footer')%>
